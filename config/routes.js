@@ -32,7 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /song/getAll': 'SongController.getAll' 
+  'POST /song/getAll': 'SongController.getAll',
+  'POST /song/add': 'SongController.add',
+  'POST /song/delete': 'SongController.delete'
 
   /***************************************************************************
   *                                                                          *

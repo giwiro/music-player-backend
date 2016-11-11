@@ -23,7 +23,8 @@
     "rc": "1.0.1",
     "sails": "~0.12.9",
     "sails-disk": "~0.10.9",
-    "sails-hook-babel": "^6.0.2"
+    "sails-hook-babel": "^6.0.2",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "debug": "node debug app.js",

@@ -4,19 +4,15 @@
  * @description :: Server-side logic for managing songs
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+ import _ from 'underscore';
 
 let lastId = 2;
 
 let songs = [
   {
     _id: 1,
-    title: "Test 1",
-    description: "asdjhasoidnyas"
-  },
-  {
-    _id: 2,
-    title: "Test 2",
-    description: "asdjhasoidnyas2"
+    title: "Falso patriotismo Comite Pokoflo(Canibal beats) El fin de los tiempos",
+    url: 'https://www.youtube.com/watch?v=MXLzOKN2xts'
   }
 ]
 
@@ -24,8 +20,26 @@ module.exports = {
 	getAll : (req, res) => {
     return res.status(200).json(songs)
   },
+  delete: (req, res) => {
+    const _id = req.param('_id');
+
+    if (!_id) {
+      return res.status(400).json({
+        status: 400,
+        error: 'ID not specified'
+      })
+    }
+
+    songs = _.without(songs, _.findWhere(songs, {
+      _id
+    }));
+
+    return res.status(200).json({
+      msg: 'ok'
+    })
+
+  },
   add: (req, res) => {
-    console.log(req.body);
     const url = req.param('url');
 
     if (!url) {
